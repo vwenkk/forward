@@ -31,12 +31,12 @@ public class InvokeController {
     }
 
     @RequestMapping(value = "/getUserToken", method = {RequestMethod.GET,RequestMethod.POST})
-    public Object getUserToken(String appToken){
+    public Object getUserToken(@RequestParam("appToken") String appToken){
         return invokeService.getUserToken(appToken);
     }
 
     @RequestMapping(value = "/getUserInfo", method = {RequestMethod.GET,RequestMethod.POST})
-    public Object getUserInfo(String appToken, String userToken){
+    public Object getUserInfo(@RequestParam("appToken") String appToken, @RequestParam("userToken") String userToken){
         return invokeService.getUserInfo(appToken, userToken);
     }
 

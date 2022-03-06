@@ -111,6 +111,13 @@ public class InvokeService {
                     break;
                 case "queryOrgInfoByOrgId":
                     QueryOrgInfoByOrgIdDTO dto = JSON.parseObject(params, QueryOrgInfoByOrgIdDTO.class);
+                    if ("".equals(dto.getUrl())) {
+                        dto.setUrl(url);
+                    }
+                    if ("".equals(dto.getAppToken())) {
+                        R<String> appToken = getAppToken();
+                        dto.setUrl(appToken.getData());
+                    }
                     resultR = SmartManagerApi.queryOrgInfoByOrgId(dto.getUrl(), dto.getAppToken(), dto.getOrgId());
                     break;
                 default:

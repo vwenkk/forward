@@ -1,7 +1,7 @@
 server:
   port: 8080
 smart:
-  url: http://10.26.47.96:8200
+  url: http://10.26.47.96
   userId: xam_user_mt_1
   appMark: 123456845
   appKey: ca491faae0c14fbf92c908c54ac0e095
