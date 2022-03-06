@@ -25,6 +25,21 @@ public class InvokeController {
     private InvokeService invokeService;
 
 
+    @RequestMapping(value = "/getAppToken", method = {RequestMethod.GET,RequestMethod.POST})
+    public Object getAppToken(){
+        return invokeService.getAppToken();
+    }
+
+    @RequestMapping(value = "/getUserToken", method = {RequestMethod.GET,RequestMethod.POST})
+    public Object getUserToken(String appToken){
+        return invokeService.getUserToken(appToken);
+    }
+
+    @RequestMapping(value = "/getUserInfo", method = {RequestMethod.GET,RequestMethod.POST})
+    public Object getUserInfo(String appToken, String userToken){
+        return invokeService.getUserInfo(appToken, userToken);
+    }
+
     @RequestMapping(value = "", method = {RequestMethod.GET,RequestMethod.POST})
     public Object index(@RequestParam("method") String method, @RequestParam("params") String params){
         return invokeService.invoke(method, params);
